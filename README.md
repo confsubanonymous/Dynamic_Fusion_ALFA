@@ -4,7 +4,7 @@
 
 *(Author details withheld for anonymity)*
 
-### [Project Page (CSTS Reference)](https://bolinlai.github.io/CSTS-EgoGazeAnticipation/)
+### [Project Page (CSTS Reference)](https://confsubanonymous.github.io/Dynamic_Fusion_ALFA/)
 
 ---
 
