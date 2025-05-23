@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sensory Spotlight: Dynamic Multimodal Fusion for Anticipating Human Attention</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Sensory Spotlight: Dynamic Multimodal Fusion for Anticipating Human Attention</h1>
+    <p>NeurIPS 2025</p>
+    <div class="authors">
+      Anonymous Author(s)<br>
+      <!--<a href="sample link">First Author Name</a><sup>1*</sup>, <a href="sample link">Second Author Name</a><sup>2</sup><br>-->
+      Affiliation withheld for double-blind review<br>
+      <!--<sup>1</sup>First Author Institute<br>
+      <sup>2</sup>Second Author Institute<br><br>
+      <small><sup>*</sup>Indicates Equal Contribution</small>-->
+    </div>
+  </header>
+
+  <div class="button-group">
+    <!--<a href="sample link" class="btn"><i class="fas fa-file-alt"></i>Paper</a>-->
+    <a href="https://github.com/augmented-human-lab/Dynamic_Fusion.git" class="btn"><i class="fab fa-github"></i>Code</a>
+    <!--<a href="sample link" class="btn"><i class="fas fa-folder-open"></i>Supplementary</a>-->
+  </div>
+
+    <h2 style="weight:200"><center><i>Can We Mimic Human Cognitive Processes in Attention Shifting to More Effectively Fuse Information From Different Modalities?</i></center></h2>
+    <div class="card">
+     <p>
+       We propose <b>ALFA</b>: <b>A</b>daptive <b>L</b>earning for <b>F</b>usion <b>A</b>lignment, a context-aware dynamic fusion policy that explicitly models the varying importance of audio and visual information in egocentric gaze anticipation.
+     </p>
+    </div>
+
+    <div class="card">
+      <div class="figure-row">
+        <figure>
+          <img src="assets/method.jpg" alt="Figure Method" style="height: auto;" />
+        </figure>
+      </div>
+    </div>
+
+    <div class="card">
+     <p>
+       Given video frames and corresponding audio spectrograms (from t-3), modality-specific encoders extract visual (X<sub>v</sub>) and audio (X<sub>a</sub>) features. 
+       A lightweight policy network computes the dynamic fusion weight &alpha; using both local and global context. 
+       These weights modulate each modality's contribution before fusion. A decoder predicts the anticipated gaze location at t+2. 
+       A regularization term encourages balanced fusion. ALFA is a simple, plug-and-train module that can be integrated to existing architectures.
+     </p>
+    </div>
+
+    <hr style="
+       border: none;
+       height: 0.15rem;
+       background: linear-gradient(to right, transparent, #B2BEB5, transparent);
+    ">
+
+    <h2>Abstract</h2>
+    <div class="card">
+     <p>
+       Humans continuously prioritize various sensory modalities to make rapid, context-sensitive decisions, for example, reacting to a sudden sound while focused on a visual task. 
+       Emulating this adaptive multimodal prioritization remains a fundamental challenge in artificial systems. 
+       In this work, we introduce ALFA (Adaptive Learning for Fusion Alignment), an interpretable context-aware dynamic fusion policy that enables neural models to adaptively weight audio and visual modalities based on learned embeddings for egocentric gaze anticipation. 
+       ALFA leverages a lightweight policy network to adaptively prioritize modalities based on contextual cues. 
+       Guided by principles from mutual information maximization and cognitive science, it learns to align modality importance with task-relevant context during inference. 
+       We evaluated ALFA on two egocentric datasets, Ego4D and AriaEA, achieving consistent improvements over the state-of-the-art: up to 1% increase in F1 on Ego4D. 
+       ALFA demonstrates robust behavior under modality corruption, dynamically shifting attention toward the more reliable stream. 
+       Despite its adaptability, it incurs minimal overhead: only +0.7 ms inference time and ~44 MB memory increase. 
+       ALFA not only improves predictive performance but also enhances interpretability and reliability by providing transparent modality prioritization weights, making it well-suited for deployment in real-world applications.
+     </p>
+    </div>
+
+    <hr style="
+       border: none;
+       height: 0.15rem;
+       background: linear-gradient(to right, transparent, #B2BEB5, transparent);
+    ">
+
+    <!--<div class="videoContainer">
+      <video autoplay muted loop playsinline width="100%">
+        <source src="assets/demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>  
+    </div>-->
+  
+    <h2>Comparison with SOTA Baselines</h2>
+    <div class="card">
+       <div class="figure-row">
+        <figure>
+          <center><img src="assets/table_main.jpg" alt="Main Table" style="height: auto; width: 90%;" /></center>
+        </figure>
+       </div>
+       <p>
+        Best results are highlighted in <b>bold</b>. Rows with a gray background represent the base model enhanced with ALFA, which outperforms the corresponding model without ALFA.
+      </p>
+    </div>
+
+    <h2>Spatial vs Temporal Fusion Streams</h2>
+    <div class="card">
+      <div class="figure-row">
+        <figure>
+          <img src="assets/spatial_temporal.jpg" alt="Figure Spatial_temporal" style="height: auto;" />
+        </figure>
+      </div>
+       <p>
+        As the baseline CSTS includes spatial and temporal fusion streams, we independently applied our dynamic fusion policy to each to isolate their effects.
+        We observe little variation in &alpha;<sub>sp</sub>, suggesting minimal audio influence on spatial features, while &alpha;<sub>temp</sub> varies significantly across contexts. 
+        Videos with high &alpha;<sub>temp</sub> show stable visual attention, whereas lower values reflect scenarios where audio influences gaze shifts, demonstrating that ALFA adapts modality weighting as intended.
+      </p>
+    </div>
+
+    <h2>Global vs Local Contexts</h2>
+    <div class="card">
+      <p>
+        Our model employs an adaptive fusion mechanism that integrates both local frame-level and global sequence-level contexts to optimize multimodal integration. 
+        For each temporal segment, we extract representative features by computing local frame-level embeddings (averaged across 64 spatial tokens per frame) and global video-level embeddings (averaged across the entire sequence).
+      </p>
+      <div class="figure-row">
+        <figure>
+          <center><img src="assets/table_local_global.jpg" alt="Local_global Table" style="height: auto; width: 60%;" /></center>
+        </figure>
+      </div>
+    </div>
+
+    <h2>Robustness for Modality Corruption</h2>
+    <div class="card">
+      <p>
+        We visualize the change in temporal &alpha; across frames for a selected video under clean and visually corrupted conditions. 
+        As shown, &alpha; decreases under corruption, reducing the influence of the visual modality and demonstrating ALFA's ability to adaptively downweight degraded inputs.
+      </p>
+      <div class="figure-row">
+        <figure>
+          <img src="assets/corruption.jpg" alt="Figure Corruption" style="height: auto;" />
+        </figure>
+      </div>
+    </div>
+
+    <h2>Interpretability Validation</h2>
+    <div class="card">
+      <p>
+        To validate our alpha metric against human perception, we conducted a preliminary human annotation study.
+        Task comprehension was guaranteed by including two attention-check videos: one with a fully black screen (to indicate low visual salience) and one with muted audio (to indicate high visual salience).
+      </p>
+      <div class="figure-row">
+        <figure>
+          <center><img src="assets/validation.jpg" alt="Figure Validation" style="height: auto; width: 60%;" /></center>
+        </figure>
+      </div>
+      <p>
+        The average human ratings show a strong correlation with our computational alpha metric (r=0.65, p=0.041), demonstrating good alignment between human perception and our proposed measure of visual attention demand.
+      </p>
+    </div>
+
+  <!--<h2 style="border-left: none; padding-left: 0;">BibTeX</h2>
+  <div class="bibtexContainer">
+    <pre id="bibtex"><code>
+@inproceedings{anonymous2025sensory,
+  title     = {Sensory Spotlight: Dynamic Multimodal Fusion for Anticipating Human Attention},
+  author    = {Anonymous Author(s)},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2025}
+}
+    </code></pre>
+    
+    <span class="copy-icon" onclick="copyBibtex()" title="Copy BibTeX">
+      <i class="fa-regular fa-copy"></i>
+    </span>
+  </div>-->
+  
+</div>
+</body>
+
+<!--<script>
+  function copyBibtex() {
+    const text = document.getElementById("bibtex").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("BibTeX copied to clipboard!");
+    });
+  }
+</script>-->
+
+</html>

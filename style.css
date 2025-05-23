@@ -1,0 +1,186 @@
+    :root {
+      --primary: #3b3b3b;
+      --accent: #94d2bd;
+      --background1: #ffffff;
+      --background2: #f2f0ef;
+      --text: #000000;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--background1);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 60%;       
+      margin: 0 auto;    
+      box-sizing: border-box; 
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        max-width: 100%;
+        padding: 0 1rem;
+      }
+    }
+    
+    header {
+      background: var(--background1);
+      color: var(--text);
+      text-align: center;
+      padding-top: 2rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    header p {
+      font-size: 1.5rem;
+    }
+
+    .authors {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .button-group {
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 0.5rem 1rem;
+      padding: 0.5rem 0.5rem;
+      width: 10rem;
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 0.5rem 0.1rem rgba(0, 0, 0, 0.1);
+      border: 0.1rem solid var(--primary);
+      border-radius: 2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn i {
+      margin-right: 0.5rem;
+    }
+    
+    .btn:hover {
+      color: var(--background2);
+      background-color: var(--primary);
+    }
+
+   /* .separator {
+      color: var(--primary);
+      font-size: 2rem;
+      vertical-align: middle;
+    } */
+    
+    h2 {
+      color: var(--primary);
+      margin-top: 2rem;
+    }
+
+    .card {
+      margin-bottom: 2rem;
+    }
+
+    .card p {
+      text-align: justify;
+    }
+
+    .figure-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    figure {
+      text-align: center;
+      flex: 1 1 calc(50% - 0.5rem);
+      margin: 0;
+      padding: 0;
+    }
+
+    @media (max-width: 768px) {
+      figure {
+        flex: 1 1 100%;
+      }
+    }
+
+    figure img {
+      width: 100%;
+      height: 15rem;
+      object-fit: cover;
+      border: 0.1rem solid var(--background2);
+      box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+      border-radius: 0.3rem;
+      display: block;
+    }
+
+    figcaption {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: var(--text)
+    }
+
+    .videoContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2.5rem 1.5rem;
+    }
+
+    video {
+      max-width: 90%; 
+      border-radius: 1rem; 
+      box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.2);
+    }
+
+    .bibtexContainer {
+      position: relative;
+      margin: 2rem 0;
+    }
+    
+    .bibtexContainer pre {
+      background-color: var(--background2);
+      padding: 1rem;
+      border-radius: 0.3rem;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    
+    .copy-icon {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: var(--primary);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    
+    .copy-icon:hover {
+      color: var(--text);
+    }
+
+    
