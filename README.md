@@ -57,7 +57,7 @@ Training and evaluation scripts follow the same structure, with only minor addit
 
 ## Acknowledgements
 
-Our implementation is based on the excellent open-source codebases of
+Our implementation is based on the open-source codebases of
 
 * [SlowFast](https://github.com/facebookresearch/SlowFast)
 * [CSTS](https://github.com/BolinLai/CSTS)
